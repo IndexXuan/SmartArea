@@ -1,0 +1,26 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<title>无标题</title>
+</head>
+<body>
+
+<script src="parse_url.js"></script>
+<script type="text/javascript">
+//var myurl = "http://app.jsnu.edu.cn/shiwu/index.php?isLogin=1";
+var myURL = parseURL('http://abc.com:8080/dir/index.html?id=255&m=hello#top');
+console.log(myURL.file); // = 'index.html'
+console.log(myURL.hash); // = 'top'
+console.log(myURL.host); // = 'abc.com'
+console.log(myURL.query); // = '?id=255&m=hello'
+console.log(myURL.params); // = Object = { id: 255, m: hello }
+console.log(myURL.path); // = '/dir/index.html'
+console.log(myURL.segments); // = Array = ['dir', 'index.html']
+console.log(myURL.port); // = '8080'
+console.log(myURL.protocol); // = 'http'
+console.log(myURL.source); // = 'http://abc.com:8080/dir/index.html?id=255&m=hello#top'
+
+
+</script>
+</body>
+</html>
