@@ -16,6 +16,7 @@
   *
 
   * Last Modified: 2014 05 08
+  * Last Modified: 2014 08 14 00:14;
 
 */
 
@@ -81,7 +82,7 @@ video {
  * Remove excess height in iOS 5 devices.
  */
 
-audio:not([controls]) {
+audio: not([controls]) {
   display: none;
   height: 0;
 }
@@ -111,8 +112,8 @@ a {
  * Improve readability when focused and also mouse hovered in all browsers.
  */
 
-a:active,
-a:hover {
+a: active,
+a: hover {
   outline: 0;
 }
 
@@ -206,7 +207,7 @@ img {
  * Correct overflow displayed oddly in IE 9.
  */
 
-svg:not(:root) {
+svg: not(: root) {
   overflow: hidden;
 }
 
@@ -325,8 +326,8 @@ html input[disabled] {
  * Remove inner padding and border in Firefox 4+.
  */
 
-button::-moz-focus-inner,
-input::-moz-focus-inner {
+button: : -moz-focus-inner,
+input: : -moz-focus-inner {
   border: 0;
   padding: 0;
 }
@@ -360,8 +361,8 @@ input[type="radio"] {
  * decrement button to change from `default` to `text`.
  */
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type="number"]: : -webkit-inner-spin-button,
+input[type="number"]: : -webkit-outer-spin-button {
   height: auto;
 }
 
@@ -384,8 +385,8 @@ input[type="search"] {
  * padding (and `textfield` appearance).
  */
 
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
+input[type="search"]: : -webkit-search-cancel-button,
+input[type="search"]: : -webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -446,34 +447,44 @@ th {
 
 
 /* ================ 2.SmartArea ================ */
+.no-responsive { /* for body */
+  overflow: auto; 	
+}
+.responsive { /* for body */
+  overflow-x: hidden;
+  overflow-y: auto;  	
+}
 .container100 { 
   width: 100%;
-  text-align: justify;
 }
 .container960 {
   max-width: 960px;
   *width: 960px;
   margin-left:  auto; 
   margin-right:  auto;
-  text-align: justify;
 }
 .container1004 {
   max-width: 1004px;
   *width: 1004px;
   margin-left:  auto; 
   margin-right:  auto;
-  text-align: justify;
 }
 .container1200 {
   max-width: 1200px;
   *width: 1200px;
   margin-left:  auto; 
   margin-right:  auto; 
-  text-align: justify;
 }
-.children_join { /* clear inline-block gap */
+.children-join,
+.children_join { /* clear inline-block gap, will find better way in the future! */
   font-size: 0;
   letter-spacing: -4px;
+}
+.content-left {  /* 内容左起或左对齐 */
+  text-align: left;	
+}
+.content-right { /* 内容右起或右对齐 */
+  text-align: right;	
 }
 .normalize { /* normalize the children_join */
   font-size: 14px; 
@@ -481,18 +492,25 @@ th {
 }	
 .area {
   display: inline-block; /* core */
-  /* 低版本ie(ie6)使用html5标签，可以不用以下2条兼容hack，原因不明 */
+  /* 低版本ie(ie6)使用垫片脚本后，html5标签可以不用以下2条兼容，原因不明 */
   *display: inline; /* 兼容ie6 7的普通标签 */
-  zoom: 1; 
-  text-align: left; /* 考虑到left为大多数选择 特殊居中块添加tac来进行块内居中 */
+  *zoom: 1; 
+  text-align: left; /* 考虑到到达area级别则left为大多数选择 且浏览器默认值为居中 201408132344 */
   vertical-align: top; /* key */
-/*   overflow: hidden; */
 }
-@media all and (max-width: 769px) { /* set the break value. pad style*/
-  .area_block {width: 100%!important;}
+
+/***************************************************************************
+
+    *  快速响应式工具类
+    *  默认关闭 2014 08 13 23：40
+    *  default quick response btn = Off
+
+@media all and (max-width: 769px) { set the break value. pad style
+  .area_block {width: 100%!important;padding: 0!important;}
   .area_inline{width: auto;}
   .area_hidden{display: none!important;}
-  .area_wpct50{width: 48%!important;}
+  .area_wpct33{width: 32%!important;margin: 0!important;}
+  .area_wpct50{width: 48%!important;margin: 0!important;}
   .gap,
   .gap5,
   .gap10,
@@ -502,11 +520,16 @@ th {
     height: 2px!important;
   }
 }
-@media all and (max-width: 508px) { /* set the break value. phone all block*/
+
+@media all and (max-width: 508px) { set the break value. phone all block
   .area_block, 
   .area_inline,  
+  .area_wpct33,
   .area_wpct50{width: 100%!important;}
-}
+} 
+
+***************************************************************************/
+
 /* ================ /.SmartArea ================ */
 
 
@@ -518,18 +541,18 @@ th {
 .pr{position: relative;}
 .pa{position: absolute;}
 .pf{position: fixed;}
-/* top_left_right_bottom */
+/* top left right bottom */
 .top50{top: 50%;}
 .left50{left: 50%;}
 .right50{right: 50%;}
 .bottom50{bottom: 50%;}
 /* z-index */
-.z_low1{z-index: 1;}
-.z_low2{z-index: 11;}
-.z_mid1{z-index: 111;}
-.z_mid2{z-index: 1111;}
-.z_high1{z-index: 11111;}
-.z_high2{z-index: 99999;}
+.z-low1{z-index: 1;}
+.z-low2{z-index: 11;}
+.z-mid1{z-index: 111;}
+.z-mid2{z-index: 1111;}
+.z-high1{z-index: 11111;}
+.z-high2{z-index: 99999;}
 /* vertical-align */
 .va-2{vertical-align: -2px;}
 .vat{vertical-align: top;}
@@ -559,17 +582,21 @@ th {
 .wpct33{width: 33.3%;}
 .wpct35{width: 35%;}
 .wpct40{width: 40%;}
+.wpct45{width: 45%;}
 .wpct48{width: 48%;}
 .wpct50{width: 50%;}
 .wpct55{width: 55%;}
 .wpct60{width: 60%;}
+.wpct65{width: 65%;}
 .wpct66{width: 66.6%;}
 .wpct70{width: 70%;}
 .wpct75{width: 75%;}
 .wpct80{width: 80%;}
+.wpct85{width: 85%;}
 .wpct90{width: 90%;}
 .wpct95{width: 95%;}
 .wpct98{width: 98%;}
+.wpct99{width: 99%;}
 .wpct100{width: 100%;}
 /* height */
 .hauto{height: auto;}
@@ -637,15 +664,15 @@ th {
 .bge0{background-color: #e0e0e0;}
 .bgeee{background-color: #eee;}
 .bg666{background-color: #666;}
-/* border include no_border、base_border and box-shadow border */
+/* border include no-border、base-border and box-shadow border */
 .border0{border: 0;outline: 0;}
 .border{border: 1px solid #aaa;}
-.border_common {border: 2px solid #076498;border-radius: 10px;box-shadow: 0.5px 1px 3px #888;}
-.border_primary {border: 2px solid #428bca;border-radius: 10px;box-shadow: 0.5px 1px 3px #888;}
-.border_info {border: 2px solid #5bc0de;border-radius: 10px;box-shadow: 0.5px 1px 3px #888;}
-.border_danger {border: 2px solid #d9534f;border-radius: 10px;box-shadow: 0.5px 1px 3px #888;}
-.border_success {border: 2px solid #5cb85c;border-radius: 10px;box-shadow: 0.5px 1px 3px #888;}
-.border_warning {border: 2px solid #f0ad4e;border-radius: 10px;box-shadow: 0.5px 1px 3px #888;}
+.border-common {border: 2px solid #076498;border-radius: 10px;box-shadow: 0.5px 1px 3px #888;}
+.border-primary {border: 2px solid #428bca;border-radius: 10px;box-shadow: 0.5px 1px 3px #888;}
+.border-info {border: 2px solid #5bc0de;border-radius: 10px;box-shadow: 0.5px 1px 3px #888;}
+.border-danger {border: 2px solid #d9534f;border-radius: 10px;box-shadow: 0.5px 1px 3px #888;}
+.border-success {border: 2px solid #5cb85c;border-radius: 10px;box-shadow: 0.5px 1px 3px #888;}
+.border-warning {border: 2px solid #f0ad4e;border-radius: 10px;box-shadow: 0.5px 1px 3px #888;}
 /* border-radius */
 .br3{border-radius: 3px;}
 .br5{border-radius: 5px;}
@@ -665,12 +692,12 @@ th {
 .o7{opacity: .7;}
 .o9{opacity: .9;}
 /* cursor */
-.cur_p{cursor: pointer;}
-.cur_d{cursor: default;}
-.cur_t{cursor: text;}
-.cur_h{cursor: hand;}
-.cur_na{cursor: not-allowed;}
-.cur_my{cursor: url(""), url(""), default;} /* do yourself */
+.cur-p{cursor: pointer;}
+.cur-d{cursor: default;}
+.cur-t{cursor: text;}
+.cur-h{cursor: hand;}
+.cur-na{cursor: not-allowed;}
+.cur-my{cursor: url(""), url(""), default;} /* do yourself */
 /***** /.other *****/
 
 /* ================ /. Layout   ================ */
@@ -714,13 +741,15 @@ a {
 }
 a: hover,
 a: focus {
-/*   color: #2a6496; */
+/* color: #2a6496; */
   text-decoration: none;
 }
 a: focus {
+/*   
   outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
+  outline-offset: -2px; 
+*/
 }
 figure {
   margin: 0;
@@ -733,7 +762,6 @@ li {
   list-style: none;
 }
 /* /.reset */
-.body{overflow: hidden scroll;}
 img {
   max-width: 100%;
   width: auto\9;
@@ -754,12 +782,12 @@ img {
 .gap50{height: 50px;overflow: hidden;clear: both;}
 
 /* media show hide */
-.sr_only{}
-.sr_hidden{}
-.pad_only{}
-.pad_hidden{}
-.phone_only{}
-.phone_hidden{}
+.sr-only{}
+.sr-hidden{}
+.pad-only{}
+.pad-hidden{}
+.phone-only{}
+.phone-hidden{}
 .hide-text {
   font: 0/0 a;
   color: transparent;
@@ -785,19 +813,14 @@ img {
 }
 
 /* Fixed */
-.fixed_top{position: fixed;top: 0;bottom: auto;z-index: 99999;}
-.fixed_bottom{position: fixed;top: auto;bottom: 0;margin-bottom: 1px;}
-.fixed_center_middle{/*gt ie8*/position: fixed;left: 0;right: 0;top: 0;bottom: 0;margin: auto;}
-.center_middle{position: absolute;left: 50%;top: 50%;margin-left: -100px;margin-top: -100px;width: 200px;height: 200px;}
+.fixed-top{position: fixed;top: 0;bottom: auto;z-index: 99999;}
+.fixed-bottom{position: fixed;top: auto;bottom: 0;margin-bottom: 1px;}
+.fixed-center-middle{/*gt ie8*/position: fixed;left: 0;right: 0;top: 0;bottom: 0;margin: auto;}
+.center-middle{position: absolute;left: 50%;top: 50%;margin-left: -100px;margin-top: -100px;width: 200px;height: 200px;}
 
 /* overflow */
 .ofh{overflow: hidden;}
 .ofv{overflow: visible;}
-
-.scrollbar {
-  overflow-x: hidden;
-  overflow-y: auto;  
-}
 
 /*  ul */
 .unstyled {
@@ -828,7 +851,7 @@ img {
 }
 
 /* 块状元素水平居中 */
-.block_center{margin-left: auto; margin-right: auto;}
+.block-center{margin-left: auto; margin-right: auto;}
 
 /* 大小不定元素垂直居中 */
 .vmiddle{display: inline-block; width: 0; height: 100%; vertical-align: middle;}
