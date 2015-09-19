@@ -1,10 +1,9 @@
-#SmartArea# ---  
-A light and easy layout library by xiaoxuan  
+A light and easy layout library by IndexXuan    
 ==========================================================  
 Copyright 2014 - 2015    
-xiaoxuan @Thinker小炫(weibo.com)  
-Email: pengruixiaoxuan@gmail.com   
-Just for xiaoxuan fast build  
+xiaoxuan @IndexXuan(weibo.com)  
+Email: indexxuan@gmail.com， 1203802652@qq.com  
+Just for fast build  
 License: MIT  
 Modules  
     ---Normalize  
